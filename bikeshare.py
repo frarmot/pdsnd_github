@@ -305,11 +305,17 @@ def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
+        # Calculates time statistics.
         time_stats(df)
+        # Calculates station statistics.
         station_stats(df)
+        # Calculates trip duration statistics.
         trip_duration_stats(df)
+        # Calculates bike renter statistics.
         user_stats(df)
+        # Shows requested raw data.
         show_raw_data(df)
+        # Clears filter ready for next run.
         user_filters.clear()
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
