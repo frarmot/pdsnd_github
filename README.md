@@ -5,7 +5,7 @@ Local git project created on 02-04-2019.
 Explore Bikeshare data.
 
 ### Description
-Describe what your project is about and what it does
+This project explores Bikeshare data using python. It answers some statistical questions.
 
 ### Files used
 Include the files used
