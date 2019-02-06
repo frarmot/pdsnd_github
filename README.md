@@ -8,7 +8,10 @@ Explore Bikeshare data.
 This project explores Bikeshare data using python. It answers some statistical questions.
 
 ### Files used
-Include the files used
+This project uses the following data files:-
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
