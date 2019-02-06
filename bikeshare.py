@@ -276,28 +276,28 @@ def show_raw_data(df):
     # Get the length of data frame to avoid out of range index errors.
     df_row_count = df1.shape[0]
     lower_index = 0
-    upper_index = 5
+    upper_index = 10
     allowed_user_choices = ['y','n']
     # Ensure that user response is either y or n.
-    list_next_five_rows = input("\nDo you want to display sets of five rows of raw data? Enter 'y' for yes or 'n' for no: ").lower().rstrip().lstrip()
+    list_next_five_rows = input("\nDo you want to display sets of ten rows of raw data? Enter 'y' for yes or 'n' for no: ").lower().rstrip().lstrip()
     while list_next_five_rows not in allowed_user_choices:
         print("You need to type in 'y' for yes or 'n' for no.")
-        list_next_five_rows = input("\nDo you want to display sets of five rows of raw data? Enter 'y' for yes or 'n' for no: ").lower().rstrip().lstrip()
+        list_next_five_rows = input("\nDo you want to display sets of ten rows of raw data? Enter 'y' for yes or 'n' for no: ").lower().rstrip().lstrip()
 
     #Loop for as long as rows are within the index range of data frame.
     while upper_index < df_row_count:
         if list_next_five_rows == 'y':
             print(df1[lower_index:upper_index])
             lower_index = upper_index
-            upper_index += 5
-            list_next_five_rows = input("\nDo you want to display sets of five rows of raw data? Enter 'y' for yes or 'n' for no: \n").lower().rstrip().lstrip()
+            upper_index += 10
+            list_next_five_rows = input("\nDo you want to display sets of ten rows of raw data? Enter 'y' for yes or 'n' for no: \n").lower().rstrip().lstrip()
             while list_next_five_rows not in allowed_user_choices:
                 print("You need to type in 'y' for yes or 'n' for no.")
-                list_next_five_rows = input('\nDo you want to display sets of five rows of raw data? ').lower().rstrip().lstrip()
+                list_next_five_rows = input('\nDo you want to display sets of ten rows of raw data? ').lower().rstrip().lstrip()
         else:
             print('\nYou have either opted not to proceed showing raw data or you have reached the end of raw data.')
             lower_index = 0
-            upper_index = 5
+            upper_index = 10
             break
 
 def main():
@@ -305,11 +305,17 @@ def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
+        # Calculates time statistics.
         time_stats(df)
+        # Calculates station statistics.
         station_stats(df)
+        # Calculates trip duration statistics.
         trip_duration_stats(df)
+        # Calculates bike renter statistics.
         user_stats(df)
+        # Shows requested raw data.
         show_raw_data(df)
+        # Clears filter ready for next run.
         user_filters.clear()
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
